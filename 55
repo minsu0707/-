@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Todo List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 500px;
+      margin: 50px auto;
+    }
+    h1 {
+      text-align: center;
+    }
+    .input-area {
+      display: flex;
+      gap: 8px;
+    }
+    input {
+      flex: 1;
+      padding: 8px;
+    }
+    button {
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+    ul {
+      margin-top: 20px;
+      padding: 0;
+      list-style: none;
+    }
+    li {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+    .done {
+      text-decoration: line-through;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Todo List</h1>
+
+  <div class="input-area">
+    <input id="todoInput" type="text" placeholder="할 일 입력" />
+    <button onclick="addTodo()">추가</button>
+  </div>
+
+  <ul id="todoList"></ul>
+
+  <script>
+    const input = document.getElementById("todoInput");
+    const list = document.getElementById("todoList");
+
+    function addTodo() {
+      const text = input.value.trim();
+      if (!text) return;
+
+      const li = document.createElement("li");
+
+      const span = document.createElement("span");
+      span.textContent = text;
+      span.onclick = () => {
+        span.classList.toggle("done");
+      };
+
+      const delBtn = document.createElement("button");
+      delBtn.textContent = "삭제";
+      delBtn.onclick = () => {
+        li.remove();
+      };
+
+      li.appendChild(span);
+      li.appendChild(delBtn);
+      list.appendChild(li);
+
+      input.value = "";
+    }
+
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") addTodo();
+    });
+  </script>
+
+</body>
+</html>

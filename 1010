@@ -15,7 +15,7 @@
     }
     .input-area {
       display: flex;asdfsadf
-      gap: 8px;
+      gap: 8px;asdfasdfasdf
     }
     input {
       flex: 1;

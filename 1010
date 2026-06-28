@@ -14,7 +14,7 @@
       text-align: center;
     }
     .input-area {
-      display: flex;
+      display: flex;asdfsadf
       gap: 8px;
     }
     input {

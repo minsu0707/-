@@ -79,7 +79,7 @@
       li.appendChild(delBtn);
       list.appendChild(li);
 
-      input.value = "";
+      input.value = "";asdfasdfasdf
     }
 
     input.addEventListener("keydown", (e) => {
